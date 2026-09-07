@@ -256,6 +256,15 @@
   .acc-panel p, .acc-panel ul{color:var(--ink-700);font-size:14.5px;}
   .acc-panel p:first-of-type{margin-top:0;}
   .acc-panel li{margin-bottom:8px;}
+  @media(max-width:768px){
+    /* 모바일에서 max-height 애니메이션이 중간에 끊겨 내용이 잘리는 경우를 대비한 안전장치:
+       열린 패널의 높이를 화면의 70%로 제한하고 넘치는 내용은 내부 스크롤로 볼 수 있게 함 */
+    .acc-item.open .acc-panel{
+      max-height:70vh !important;
+      overflow-y:auto !important;
+      -webkit-overflow-scrolling:touch;
+    }
+  }
   .research-overview-card{
     background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);
     max-width:900px;margin:0 auto 28px;padding:16px;
